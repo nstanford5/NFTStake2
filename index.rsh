@@ -8,10 +8,8 @@ export const main = Reach.App(() => {
       deadline: UInt,
     }),
     launched: Fun([Contract], Null),
-    checkStatus: Bool,
   });
-  const B = Participant('User', {
-  });
+  const B = Participant('User', {});
   const V = View({
     seeTerms: Tuple(Token, UInt, UInt),
   });
@@ -29,10 +27,7 @@ export const main = Reach.App(() => {
   commit();
 
   wait(relativeTime(deadline));
-  A.only(() => {
-    const b = declassify(interact.checkStatus);
-  });
-  A.publish();// should this be true/false, "we are good?"
+  A.publish();
   transfer(rewards).to(B);
   transfer(1, tok).to(B);
 

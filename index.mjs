@@ -10,7 +10,7 @@ const [ accA, accB ] =
   await stdlib.newTestAccounts(2, startingBalance);
 const beforeA = await getBal(accA);
 const beforeB = await getBal(accB);
-console.log('Hello, Clarice..');
+console.log('Hello, Clarice...');
 
 console.log('Launching...');
 const ctcA = accA.contract(backend);
