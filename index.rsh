@@ -1,7 +1,7 @@
 'reach 0.1';
 
 export const main = Reach.App(() => {
-  const A = Participant('Alice', {
+  const A = Participant('Admin', {
     params: Object({
       tok: Token,
       rewards: UInt,
@@ -10,10 +10,10 @@ export const main = Reach.App(() => {
     launched: Fun([Contract], Null),
     checkStatus: Bool,
   });
-  const B = Participant('Bob', {
+  const B = Participant('User', {
   });
   const V = View({
-    seeTerms: Fun([], Tuple(Token, UInt, UInt)),
+    seeTerms: Tuple(Token, UInt, UInt),
   });
   init();
   A.only(() => {
@@ -21,7 +21,7 @@ export const main = Reach.App(() => {
   });
   A.publish(tok, rewards, deadline)
     .pay(rewards);
-  V.seeTerms.set(() => [tok, rewards, deadline]);
+  V.seeTerms.set([tok, rewards, deadline]);
   commit();
   A.interact.launched(getContract());
 
