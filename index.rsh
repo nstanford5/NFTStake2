@@ -1,3 +1,8 @@
+/**
+ * Simple NFT Stake. This could be used as an intro to Views and why they are important.
+ * Non-network token syntax. `wait`
+ * 
+ */
 'reach 0.1';
 
 export const main = Reach.App(() => {
